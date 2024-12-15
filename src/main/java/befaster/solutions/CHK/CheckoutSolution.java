@@ -82,12 +82,12 @@ public class CheckoutSolution {
                      totalPrice +=  count * itemPrices.get(sku);
                  }
             }
-            /*else {
+            else {
                 totalPrice += count * itemPrices.get(sku);
-            }*/
+            }
         }
-        totalPrice +=  skuCounts.getOrDefault('C', 0) * itemPrices.get('C');
-        totalPrice +=  skuCounts.getOrDefault('D', 0) * itemPrices.get('D');
+        //totalPrice +=  skuCounts.getOrDefault('C', 0) * itemPrices.get('C');
+        //totalPrice +=  skuCounts.getOrDefault('D', 0) * itemPrices.get('D');
 
         return totalPrice;
         //throw new SolutionNotImplementedException();
@@ -112,6 +112,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
