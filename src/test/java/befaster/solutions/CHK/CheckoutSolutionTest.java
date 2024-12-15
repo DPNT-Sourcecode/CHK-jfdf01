@@ -98,4 +98,20 @@ public class CheckoutSolutionTest {
     public void testInputForAFFFF(){
         assertEquals(80, checkoutMain.checkout("AFFFF"), "Expected Price should be 80");
     }
+
+    @Test
+    public void testInputForG(){
+        assertEquals(20, checkoutMain.checkout("G"), "Expected Price should be 20");
+    }
+
+    @Test
+    public void testPositivesMultiples(){
+        assertEquals(45, checkoutMain.checkout("HHHHH"), "Expected Price should be 45");
+        assertEquals(55, checkoutMain.checkout("HHHHHH"), "Expected Price should be 55");
+        assertEquals(150, checkoutMain.checkout("KK"), "Expected Price should be 150");
+        assertEquals(120, checkoutMain.checkout("NNNM"), "Expected Price should be 120");
+        assertEquals(120, checkoutMain.checkout("UUUU"), "Expected Price should be 120");
+        assertEquals(120, checkoutMain.checkout("UUU"), "Expected Price should be 120");
+
+    }
 }
