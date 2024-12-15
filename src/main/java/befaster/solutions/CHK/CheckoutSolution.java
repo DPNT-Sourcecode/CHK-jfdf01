@@ -78,6 +78,12 @@ public class CheckoutSolution {
         }
 
         int fCount = skuCounts.getOrDefault('F', 0);
+        if(fCount>=2){
+            if(fCount % 3 ==0){
+                int CountableC = fCount - (fCount/3);
+                totalPrice += CountableC * discountOffers.get('F').bundlePrices[0];
+            }
+        }
 
         //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
         for(char sku: skuCounts.keySet()){
@@ -136,6 +142,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
