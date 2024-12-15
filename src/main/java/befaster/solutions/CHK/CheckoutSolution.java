@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        if(skus == null || !skus.matches("^[A-D]*[E]*$")){
+        if(skus == null || !skus.matches("^[ABCD]*[E]*$")){
             return -1;
         }
 
@@ -26,8 +26,8 @@ public class CheckoutSolution {
         );
 
         Map<Character, Discount> discountOffers = new HashMap<>();
-        discountOffers.put('A', new Discount(3, 130));
-        discountOffers.put('B', new Discount(2, 45));
+        discountOffers.put('A', new Discount(new int[]{3,5}, new int[]{130, 200}));
+        discountOffers.put('B', new Discount(new int[]{2}, new int[]{45}));
         discountOffers.put('E', new Discount(2,0, 'B'));
 
         Map<Character, Integer> skuCounts = new HashMap<>();
@@ -46,19 +46,20 @@ public class CheckoutSolution {
 
                  if(sku == 'A'){
                      if (count>=5){
-                         totalPrice += (count / 5) * 200;
+                         totalPrice += (count / 5) * discount.bundlePrice[1];
                          count *= 5;
                      }
                      if(count>=3){
-                         totalPrice += (count / 3) * 130;
+                         totalPrice += (count / 3) * discount.bundlePrice[0];
                          count %= 3;
                      }
 
                      totalPrice += count * itemPrices.get(sku);
                  }
                 else if(discount.freeItem !=0){
-                    int freeBCount = (count / discount.bundleSize) * (count / discount.bundleSize);
-                    int remainingECount = count % discount.bundleSize;
+                    //int freeBCount = (count / discount.bundleSize) * (count / discount.bundleSize);
+                     int freeBCount = (count / discount.bundleSize);
+                     int remainingECount = count % discount.bundleSize;
 
                     totalPrice += (remainingECount * itemPrices.get(sku));
                     totalPrice +=  freeBCount * itemPrices.get('B');
@@ -78,21 +79,22 @@ public class CheckoutSolution {
     }
 
     static class Discount{
-        int bundleSize;
-        int bundlePrice;
+        int[] bundleSizes;
+        int[] bundlePrices;
         char freeItem;
 
-        Discount(int bundleSize, int bundlePrice){
-            this.bundleSize = bundleSize;
-            this.bundlePrice = bundlePrice;
+        Discount(int[] bundleSizes, int[] bundlePrices){
+            this.bundleSizes = bundleSizes;
+            this.bundlePrices = bundlePrices;
             this.freeItem = 0;
         }
 
         // free item
-        public Discount(int bundleSize, int freeItemCount, char freeItem) {
-            this.bundleSize = bundleSize;
-            this.bundlePrice = 0; // NO price for the free item offer
+         Discount(int bundleSize, int bundlePrice, char freeItem) {
+            this.bundleSizes = new int[]{bundleSize};
+            this.bundlePrices = new int[]{bundlePrice}; // NO price for the free item offer
             this.freeItem = freeItem;
         }
     }
 }
+
