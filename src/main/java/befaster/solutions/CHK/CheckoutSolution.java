@@ -83,11 +83,21 @@ public class CheckoutSolution {
                 int CountableC = fCount - (fCount/3);
                 totalPrice += CountableC * itemPrices.get('F');
             }
+            else if (fCount % 3 == 1){
+                totalPrice += 1 * itemPrices.get('F');
+                int CountableC = (fCount - 1) - (fCount/3);
+                totalPrice += CountableC * itemPrices.get('F');
+            }
+            else if (fCount % 3 == 2){
+                totalPrice += 2 * itemPrices.get('F');
+                int CountableC = (fCount - 2) - (fCount/3);
+                totalPrice += CountableC * itemPrices.get('F');
+            }
         }
 
         //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
         for(char sku: skuCounts.keySet()){
-            if(sku == 'E' || sku == 'B'){
+            if(sku == 'E' || sku == 'B' || sku == 'F'){
                 continue;
             }
             int count = skuCounts.get(sku);
@@ -142,6 +152,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
