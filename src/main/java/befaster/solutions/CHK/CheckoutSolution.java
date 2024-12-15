@@ -45,20 +45,18 @@ public class CheckoutSolution {
 
         if (eCount >= 2){
             totalPrice = eCount * itemPrices.get('E');
-            if(bCount <= (eCount/2)){
-            }
-            else{
+            if(bCount >= (eCount/2)){
                 int leftB = bCount - eCount/2;
                 if(leftB > 1){
                     totalPrice = leftB * itemPrices.get('B');
                 }
             }
 
-            int freeBCount = eCount / 2;
-            int remainingECount = eCount % 2;
+            //int freeBCount = eCount / 2;
+            //int remainingECount = eCount % 2;
 
-            totalPrice += remainingECount * itemPrices.get('E');
-            totalPrice += (bCount - freeBCount) * itemPrices.get('B');
+            //totalPrice += remainingECount * itemPrices.get('E');
+            //totalPrice += (bCount - freeBCount) * itemPrices.get('B');
         }
         else{
             totalPrice += eCount * itemPrices.get('E');
@@ -122,4 +120,5 @@ public class CheckoutSolution {
         }
     }
 }
+
 
