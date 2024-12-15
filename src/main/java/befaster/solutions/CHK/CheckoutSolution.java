@@ -93,10 +93,10 @@ public class CheckoutSolution {
                 int CountableC = (fCount - 2) - (fCount/3);
                 totalPrice += CountableC * itemPrices.get('F');
             }
-        }
-        else{
+        } else if (fCount==1) {
             totalPrice += 1 * itemPrices.get('F');
         }
+
 
         //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
         for(char sku: skuCounts.keySet()){
@@ -155,10 +155,3 @@ public class CheckoutSolution {
         }
     }
 }
-
-
-
-
-
-
-

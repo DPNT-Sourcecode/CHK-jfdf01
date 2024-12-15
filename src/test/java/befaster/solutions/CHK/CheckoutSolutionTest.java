@@ -99,5 +99,3 @@ public class CheckoutSolutionTest {
         assertEquals(80, checkoutMain.checkout("AFFFF"), "Expected Price should be 80");
     }
 }
-
-
