@@ -59,18 +59,18 @@ public class CheckoutSolution {
                 }
             }
         }
-        if(eCount == 0 && bCount >= 1){
-            if(bCount%2 ==0)
-                totalPrice += (bCount/2) * discountOffers.get('B').bundlePrices[0];
-            else{
-                int evenPairs = bCount/2;
-                totalPrice += 1 * itemPrices.get('B');
-                totalPrice += evenPairs * discountOffers.get('B').bundlePrices[0];
-            }
-        }
         else{
             totalPrice += eCount * itemPrices.get('E');
-            totalPrice += bCount * itemPrices.get('B');
+
+            if(bCount >= 1){
+                if(bCount%2 ==0)
+                    totalPrice += (bCount/2) * discountOffers.get('B').bundlePrices[0];
+                else{
+                    int evenPairs = bCount/2;
+                    totalPrice += 1 * itemPrices.get('B');
+                    totalPrice += evenPairs * discountOffers.get('B').bundlePrices[0];
+                }
+            }
         }
 
         //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
@@ -130,7 +130,3 @@ public class CheckoutSolution {
         }
     }
 }
-
-
-
-

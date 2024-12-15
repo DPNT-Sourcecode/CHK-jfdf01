@@ -61,7 +61,7 @@ public class CheckoutSolutionTest {
 
     @Test
     public void testInputForEEB(){
-        assertEquals(80, checkoutMain.checkout("EEB"), "Expected Price should be 115");
+        assertEquals(80, checkoutMain.checkout("EEB"), "Expected Price should be 80");
     }
 
     @Test
@@ -75,5 +75,3 @@ public class CheckoutSolutionTest {
     }
 
 }
-
-
