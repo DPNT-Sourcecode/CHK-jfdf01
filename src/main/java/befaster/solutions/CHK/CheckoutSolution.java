@@ -41,9 +41,22 @@ public class CheckoutSolution {
             char sku = entry.getKey();
             int count = entry.getValue();
 
-            if(discountOffers.containsKey(sku)) {
+             if(discountOffers.containsKey(sku)) {
                 Discount discount = discountOffers.get(sku);
-                if(discount.freeItem !=0){
+
+                 if(sku == 'A'){
+                     if (count>=5){
+                         totalPrice += (count / 5) * 200;
+                         count *= 5;
+                     }
+                     if(count>=3){
+                         totalPrice += (count / 3) * 130;
+                         count %= 3;
+                     }
+
+                     totalPrice += count * itemPrices.get(sku);
+                 }
+                else if(discount.freeItem !=0){
                     int freeBCount = (count / discount.bundleSize) * (count / discount.bundleSize);
                     int remainingECount = count % discount.bundleSize;
 
@@ -83,6 +96,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
