@@ -29,7 +29,7 @@ public class CheckoutSolution {
         Map<Character, Discount> discountOffers = new HashMap<>();
         discountOffers.put('A', new Discount(new int[]{3,5}, new int[]{130, 200}));
         discountOffers.put('B', new Discount(new int[]{2}, new int[]{45}));
-        discountOffers.put('E', new Discount(2,0, 'B'));
+        discountOffers.put('E', new Discount(2, 'B'));
 
         Map<Character, Integer> skuCounts = new HashMap<>();
 
@@ -37,17 +37,25 @@ public class CheckoutSolution {
             skuCounts.put(sku, skuCounts.getOrDefault(sku,0) +1);
         }
 
-        /*int eCount = skuCounts.getOrDefault('E', 0);
+
+
+        int totalPrice = 0;
+
+        int eCount = skuCounts.getOrDefault('E', 0);
         int bCount = skuCounts.getOrDefault('B', 0);
 
         if(eCount >=2){
             int freeBCount = eCount / 2;
             int remainingECount = eCount % 2;
 
+            totalPrice += remainingECount * itemPrices.get('E');
+            totalPrice += (bCount - freeBCount) * itemPrices.get('B');
+        }
+        else{
+            totalPrice += eCount * itemPrices.get('E');
+            totalPrice += bCount * itemPrices.get('B');
+        }
 
-        }*/
-
-        int totalPrice = 0;
         for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
             char sku = entry.getKey();
             int count = entry.getValue();
@@ -102,13 +110,14 @@ public class CheckoutSolution {
         }
 
         // free item
-         Discount(int bundleSize, int bundlePrice, char freeItem) {
+         Discount(int bundleSize, char freeItem) {
             this.bundleSizes = new int[]{bundleSize};
-            this.bundlePrices = new int[]{bundlePrice}; // NO price for the free item offer
+            this.bundlePrices = new int[]{0}; // NO price for the free item offer
             this.freeItem = freeItem;
         }
     }
 }
+
 
 
 
