@@ -131,8 +131,25 @@ public class CheckoutSolution {
             if(pCount%5 ==0)
                 totalPrice += (pCount/5) * discountOffers.get('P').bundlePrices[0];
             else{
+                int disCountedP = pCount / 5;
+                //int leftForDiscount = pCount - disCountedP;
+                totalPrice += disCountedP * discountOffers.get('P').bundlePrices[0];;
                 int pLeft = pCount%5;
                 totalPrice += pLeft * itemPrices.get('P');
+            }
+        }
+
+        // Q
+        int qCount = skuCounts.getOrDefault('Q', 0);
+        if(qCount > 1){
+            if(qCount%3 ==0)
+                totalPrice += (qCount/3) * discountOffers.get('Q').bundlePrices[0];
+            else{
+                int disCountedQ = qCount / 3;
+                //int leftForDiscount = pCount - disCountedP;
+                totalPrice += disCountedQ * discountOffers.get('Q').bundlePrices[0];
+                int qLeft = qCount%3;
+                totalPrice += qLeft * itemPrices.get('Q');
             }
         }
 
@@ -243,4 +260,5 @@ public class CheckoutSolution {
         }
     }
 }
+
 
