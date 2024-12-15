@@ -31,6 +31,19 @@ public class CheckoutSolutionTest {
         int actual = checkoutMain.checkout("ABCD");
         assertEquals(expected, actual, "Expected Price should be 115");
     }
+
+    @Test
+    public void testValidInputWithDiscount(){
+        int expected = 245;
+        int actual = checkoutMain.checkout("AAAABB");
+        assertEquals(expected, actual, "Expected Price should be 245");
+    }
+
+    @Test
+    public void testInvalidInputs(){
+        assertEquals(-1, checkoutMain.checkout("null"), "Expected Price should be -1");
+        assertEquals(-1, checkoutMain.checkout(""), "Expected Price should be -1");
+        assertEquals(-1, checkoutMain.checkout("XYZ"), "Expected Price should be -1");
+        assertEquals(-1, checkoutMain.checkout("12AB"), "Expected Price should be -1");
+    }
 }
-
-
