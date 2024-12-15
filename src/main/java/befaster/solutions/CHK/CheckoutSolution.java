@@ -289,11 +289,23 @@ public class CheckoutSolution {
 
                     totalPrice += count * itemPrices.get(sku);
                 }
-                 else if(sku == 'B') {
+                if(sku == 'V'){
+                    if (count>=3){
+                        totalPrice += (count / 3) * discount.bundlePrices[1];
+                        count %= 3;
+                    }
+                    if(count>=2){
+                        totalPrice += (count / 2) * discount.bundlePrices[0];
+                        count %= 2;
+                    }
+
+                    totalPrice += count * itemPrices.get(sku);
+                }
+                 /*else if(sku == 'B') {
                      totalPrice += (count / 2) * discount.bundlePrices[0];
                      count %= 2;
                      totalPrice +=  count * itemPrices.get(sku);
-                 }
+                 }*/
             }
             else {
                 totalPrice += count * itemPrices.get(sku);
@@ -325,6 +337,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
