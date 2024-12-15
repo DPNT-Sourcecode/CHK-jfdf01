@@ -20,11 +20,12 @@ public class HelloSolutionTest {
 
     @Test
     public void testHello(){
-        String s = "Hello, World!";
-        String actual = hello.hello("abc");
-        assertEquals(s,actual, "Expected Hello, World!");
+        String s = "Hello, Sharon!";
+        String actual = hello.hello("Sharon");
+        assertEquals(s,actual, "Expected Hello, Sharon! with input Sharon");
     }
 
 }
+
 
 
