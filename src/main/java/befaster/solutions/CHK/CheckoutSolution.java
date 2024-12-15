@@ -119,7 +119,7 @@ public class CheckoutSolution {
         int nCount = skuCounts.getOrDefault('N', 0);
         int mCount = skuCounts.getOrDefault('M', 0);
 
-        if (nCount >= 2){
+        if (nCount >= 3){
             totalPrice = nCount * itemPrices.get('N');
             if(mCount > (nCount/2)){
                 int leftM = mCount - nCount/2;
@@ -129,19 +129,9 @@ public class CheckoutSolution {
             }
         }
         else{
-            totalPrice += eCount * itemPrices.get('E');
-            if(bCount == 1){
-                totalPrice += bCount * itemPrices.get('B');
-            }
-            if(bCount > 1){
-                if(bCount%2 ==0)
-                    totalPrice += (bCount/2) * discountOffers.get('B').bundlePrices[0];
-                else{
-                    int evenPairs = bCount/2;
-                    totalPrice += 1 * itemPrices.get('B');
-                    totalPrice += evenPairs * discountOffers.get('B').bundlePrices[0];
-                }
-            }
+            totalPrice += nCount * itemPrices.get('N');
+            totalPrice += mCount * itemPrices.get('M');
+
         }
 
         //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
@@ -213,6 +203,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
