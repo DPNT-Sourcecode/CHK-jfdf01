@@ -9,7 +9,7 @@ import java.util.Map;
 public class CheckoutSolution {
     public Integer checkout(String skus) {
         //if(skus == null || !skus.matches("^[ABCD]*[E]*$")){
-        if(skus == null || !skus.matches("^[ABCDEF]*$")){
+        if(skus == null || !skus.matches("^[ABCDEFGHIJKLMNOPQRSTUVXYZ]*$")){
             return -1;
         }
 
@@ -17,7 +17,7 @@ public class CheckoutSolution {
         {
             return 0;
         }
-        // P    | 50    | 5P for 200
+
         Map<Character, Integer> itemPrices = new HashMap<>();
         itemPrices.put('A', 50);
         itemPrices.put('B', 30);
@@ -45,20 +45,6 @@ public class CheckoutSolution {
         itemPrices.put('X', 90);
         itemPrices.put('Y', 10);
         itemPrices.put('Z', 50);
-
-        /*Map<Character, Integer> itemPrices = Map.of(
-                'A', 50,
-                'B', 30,
-                'C', 20,
-                'D', 15,
-                'E', 40,
-                'F', 10,
-                'G', 20,
-                'H', 10,
-                'I', 35,
-                'J', 60,
-                'K', 80
-        );*/
 
         Map<Character, Discount> discountOffers = new HashMap<>();
         discountOffers.put('A', new Discount(new int[]{3,5}, new int[]{130, 200}));
@@ -170,7 +156,7 @@ public class CheckoutSolution {
 
         if (nCount >= 3){
             totalPrice = nCount * itemPrices.get('N');
-            if(mCount > (nCount/3)){
+            if(mCount >= (nCount/3)){
                 int leftM = mCount - nCount/3;
                 if(leftM >= 1){
                     totalPrice += leftM * itemPrices.get('M');
@@ -337,3 +323,4 @@ public class CheckoutSolution {
         }
     }
 }
+
