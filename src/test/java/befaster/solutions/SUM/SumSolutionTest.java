@@ -37,5 +37,3 @@ public class SumSolutionTest {
         assertEquals(0, actual, "Expected 0 for the input -1 and 102");
     }
 }
-
-
