@@ -61,10 +61,10 @@ public class CheckoutSolution {
                 continue;
             }
             int count = skuCounts.get(sku);
-             if(discountOffers.containsKey(sku)) {
+            if(discountOffers.containsKey(sku)) {
                 Discount discount = discountOffers.get(sku);
 
-                 if(sku == 'A'){
+                if(sku == 'A'){
                      if (count>=5){
                          totalPrice += (count / 5) * discount.bundlePrices[1];
                          count %= 5;
@@ -112,4 +112,5 @@ public class CheckoutSolution {
         }
     }
 }
+
 
