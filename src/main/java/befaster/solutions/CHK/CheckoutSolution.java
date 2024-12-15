@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        if(skus == null || !skus.matches("[A-D]+|E+")){
+        if(skus == null || !skus.matches("^[A-D]*[E]*$")){
             return -1;
         }
 
@@ -83,6 +83,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
