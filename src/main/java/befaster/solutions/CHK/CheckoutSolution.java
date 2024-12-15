@@ -48,7 +48,14 @@ public class CheckoutSolution {
             if(bCount >= (eCount/2)){
                 int leftB = bCount - eCount/2;
                 if(leftB > 1){
-                    totalPrice = leftB * itemPrices.get('B');
+                    if(leftB%2 ==0)
+                        totalPrice += (leftB/2) * discountOffers.get('B').bundlePrices[0];
+                    else{
+                        int evenPairs = leftB/2;
+                        totalPrice += 1 * itemPrices.get('B');
+                        totalPrice += evenPairs * discountOffers.get('B').bundlePrices[0];
+                    }
+
                 }
             }
 
@@ -120,5 +127,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
