@@ -156,7 +156,7 @@ public class CheckoutSolution {
 
         if (nCount >= 3){
             totalPrice = nCount * itemPrices.get('N');
-            if(mCount >= (nCount/3)){
+            if(mCount > (nCount/3)){
                 int leftM = mCount - nCount/3;
                 if(leftM >= 1){
                     totalPrice += leftM * itemPrices.get('M');
@@ -323,4 +323,5 @@ public class CheckoutSolution {
         }
     }
 }
+
 
