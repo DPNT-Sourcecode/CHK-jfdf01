@@ -60,8 +60,8 @@ public class CheckoutSolution {
             //int count = entry.getValue();
              if(sku == 'E') {
                continue;
-            }
-            int count = skuCounts.get(sku);
+             }
+             int count = skuCounts.get(sku);
              if(discountOffers.containsKey(sku)) {
                 Discount discount = discountOffers.get(sku);
 
@@ -77,8 +77,13 @@ public class CheckoutSolution {
 
                      totalPrice += count * itemPrices.get(sku);
                  }
+                 else if(sku == 'B'){
+                     totalPrice += (count / 2) * discount.bundlePrices[0];
+                     count %= 2;
+                     totalPrice += count * itemPrices.get(sku);
+                 }
                  //else if(sku == 'E') {
-                     continue;
+                     //continue;
                      //int freeBCount = count / 2;
                      //int remainingECount = count % 2;
 
@@ -86,10 +91,10 @@ public class CheckoutSolution {
                      //totalPrice +=  freeBCount * itemPrices.get('B');
                  //}
 
-                else {
+                /*else {
                     totalPrice += (count / discount.bundleSizes[0]) * discount.bundlePrices[0];
                     totalPrice += (count % discount.bundleSizes[0]) * itemPrices.get(sku);
-                }
+                }*/
             }
             else {
                 totalPrice += count * itemPrices.get(sku);
@@ -119,5 +124,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
