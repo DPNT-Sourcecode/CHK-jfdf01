@@ -4,9 +4,12 @@ import befaster.runner.SolutionNotImplementedException;
 
 public class HelloSolution {
     public String hello(String friendName) {
-        return ("Hello, World!");
+        String helloMessage = "Hello, " + friendName + "!";
+        //return ("Hello, World!");
+        return (helloMessage);
         //throw new SolutionNotImplementedException();
     }
 }
+
 
 
