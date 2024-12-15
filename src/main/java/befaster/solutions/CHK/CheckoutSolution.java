@@ -244,7 +244,8 @@ public class CheckoutSolution {
 
         //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
         for(char sku: skuCounts.keySet()){
-            if(sku == 'E' || sku == 'B' || sku == 'F'){
+            if(sku == 'E' || sku == 'B' || sku == 'F' || sku == 'K' || sku == 'M' || sku == 'N'
+                    || sku == 'P' || sku == 'Q' || sku == 'R' || sku == 'U'){
                 continue;
             }
             int count = skuCounts.get(sku);
@@ -323,5 +324,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
