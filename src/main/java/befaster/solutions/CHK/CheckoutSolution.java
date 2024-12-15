@@ -22,31 +22,31 @@ public class CheckoutSolution {
         itemPrices.put('A', 50);
         itemPrices.put('B', 30);
         itemPrices.put('C', 20);
-        itemPrices.put('D', 50);
-        itemPrices.put('E', 50);
-        itemPrices.put('F', 50);
-        itemPrices.put('G', 50);
-        itemPrices.put('H', 50);
-        itemPrices.put('I', 50);
-        itemPrices.put('J', 50);
-        itemPrices.put('K', 50);
-        itemPrices.put('L', 50);
-        itemPrices.put('M', 50);
-        itemPrices.put('N', 50);
-        itemPrices.put('O', 50);
+        itemPrices.put('D', 15);
+        itemPrices.put('E', 40);
+        itemPrices.put('F', 10);
+        itemPrices.put('G', 20);
+        itemPrices.put('H', 10);
+        itemPrices.put('I', 35);
+        itemPrices.put('J', 60);
+        itemPrices.put('K', 80);
+        itemPrices.put('L', 95);
+        itemPrices.put('M', 15);
+        itemPrices.put('N', 40);
+        itemPrices.put('O', 10);
         itemPrices.put('P', 50);
-        itemPrices.put('Q', 50);
+        itemPrices.put('Q', 30);
         itemPrices.put('R', 50);
-        itemPrices.put('S', 50);
-        itemPrices.put('T', 50);
-        itemPrices.put('U', 50);
+        itemPrices.put('S', 30);
+        itemPrices.put('T', 20);
+        itemPrices.put('U', 40);
         itemPrices.put('V', 50);
-        itemPrices.put('W', 50);
-        itemPrices.put('X', 50);
-        itemPrices.put('Y', 50);
+        itemPrices.put('W', 20);
+        itemPrices.put('X', 90);
+        itemPrices.put('Y', 10);
         itemPrices.put('Z', 50);
 
-        Map<Character, Integer> itemPrices = Map.of(
+        /*Map<Character, Integer> itemPrices = Map.of(
                 'A', 50,
                 'B', 30,
                 'C', 20,
@@ -58,28 +58,7 @@ public class CheckoutSolution {
                 'I', 35,
                 'J', 60,
                 'K', 80
-        );
-
-        /*
-        * 'I', 35,
-                'J', 60,
-                'K', 80,
-                'L', 95,
-                'M', 15,
-                'N', 40,
-                'O', 10,
-                'P', 50,
-                'Q', 30,
-                'R', 50,
-                'S', 30,
-                'T', 20,
-                'U', 40,
-                'V', 50,
-                'W', 20,
-                'X', 90,
-                'Y', 10,
-                'Z', 50
-        * */
+        );*/
 
         Map<Character, Discount> discountOffers = new HashMap<>();
         discountOffers.put('A', new Discount(new int[]{3,5}, new int[]{130, 200}));
@@ -89,6 +68,7 @@ public class CheckoutSolution {
         discountOffers.put('H', new Discount(new int[]{5,10}, new int[]{45, 80}));
         discountOffers.put('K', new Discount(new int[]{2}, new int[]{150}));
         discountOffers.put('N', new Discount(3, 'M'));
+        discountOffers.put('P', new Discount(new int[]{5}, new int[]{200}));
 
         Map<Character, Integer> skuCounts = new HashMap<>();
         for(char sku: skus.toCharArray()){
@@ -170,8 +150,8 @@ public class CheckoutSolution {
 
         if (nCount >= 3){
             totalPrice = nCount * itemPrices.get('N');
-            if(mCount > (nCount/2)){
-                int leftM = mCount - nCount/2;
+            if(mCount > (nCount/3)){
+                int leftM = mCount - nCount/3;
                 if(leftM >= 1){
                     totalPrice += leftM * itemPrices.get('M');
                 }
@@ -252,8 +232,3 @@ public class CheckoutSolution {
         }
     }
 }
-
-
-
-
-
