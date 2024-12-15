@@ -71,6 +71,7 @@ public class CheckoutSolution {
         discountOffers.put('P', new Discount(new int[]{5}, new int[]{200}));
         discountOffers.put('R', new Discount(3, 'Q'));
         discountOffers.put('U', new Discount(3, 'U'));
+        discountOffers.put('V', new Discount(new int[]{2,3}, new int[]{90, 130}));
 
         Map<Character, Integer> skuCounts = new HashMap<>();
         for(char sku: skus.toCharArray()){
@@ -223,7 +224,7 @@ public class CheckoutSolution {
 
         // U
         int uCount = skuCounts.getOrDefault('U', 0);
-        if(uCount>=3){
+        if(uCount>3){
             if(uCount % 4 ==0){
                 int CountableU = uCount - (uCount/4);
                 totalPrice += CountableU * itemPrices.get('U');
@@ -243,7 +244,14 @@ public class CheckoutSolution {
                 int CountableU = (uCount - 3) - (uCount/4);
                 totalPrice += CountableU * itemPrices.get('U');
             }
-        } else if (uCount==1) {
+        }
+        else if (uCount==3) {
+            totalPrice += 3 * itemPrices.get('U');
+        }
+        else if (uCount==2) {
+            totalPrice += 2 * itemPrices.get('U');
+        }
+        else if (uCount==1) {
             totalPrice += 1 * itemPrices.get('U');
         }
 
@@ -317,6 +325,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
