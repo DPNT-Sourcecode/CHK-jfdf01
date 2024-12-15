@@ -112,8 +112,10 @@ public class CheckoutSolutionTest {
         assertEquals(120, checkoutMain.checkout("NNNM"), "Expected Price should be 120");
         assertEquals(120, checkoutMain.checkout("UUUU"), "Expected Price should be 120");
         assertEquals(120, checkoutMain.checkout("UUU"), "Expected Price should be 120");
-
+        assertEquals(965, checkoutMain.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+        assertEquals(150, checkoutMain.checkout("RRR"));
 
     }
 }
+
 

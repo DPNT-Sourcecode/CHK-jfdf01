@@ -9,7 +9,7 @@ import java.util.Map;
 public class CheckoutSolution {
     public Integer checkout(String skus) {
         //if(skus == null || !skus.matches("^[ABCD]*[E]*$")){
-        if(skus == null || !skus.matches("^[ABCDEFGHIJKLMNOPQRSTUVXYZ]*$")){
+        if(skus == null || !skus.matches("^[ABCDEFGHIJKLMNOPQRSTUVWXYZ]*$")){
             return -1;
         }
 
@@ -182,9 +182,9 @@ public class CheckoutSolution {
         int qCount = skuCounts.getOrDefault('Q', 0);
 
         if (rCount >= 3){
-            totalPrice = qCount * itemPrices.get('R');
-            if(qCount > (qCount/3)){
-                int leftQ = qCount - eCount/3;
+            totalPrice = rCount * itemPrices.get('R');
+            if(qCount > (rCount/3)){
+                int leftQ = qCount - rCount/3;
                 if(leftQ >= 1){
                     if(leftQ%3 ==0)
                         totalPrice += (leftQ/3) * discountOffers.get('Q').bundlePrices[0];
@@ -331,6 +331,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
