@@ -22,11 +22,20 @@ public class SumSolutionTest {
     }
 
     @Test
-    public void testSum(){
+    public void testSumPositive(){
         int x = 5;
         int y = 6;
         int actual = sum.compute(x,y);
         assertEquals(11,actual, "Expected 11 for the input 5 and 6");
     }
+
+    @Test
+    public void testSumNegative(){
+        int x = -1;
+        int y = 102;
+        int actual = sum.compute(x,y);
+        assertEquals(0, actual, "Expected 0 for the input -1 and 102");
+    }
 }
+
 
