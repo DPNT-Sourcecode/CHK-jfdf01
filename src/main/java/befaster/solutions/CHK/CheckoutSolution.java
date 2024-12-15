@@ -44,6 +44,16 @@ public class CheckoutSolution {
         int bCount = skuCounts.getOrDefault('B', 0);
 
         if (eCount >= 2){
+            totalPrice = eCount * itemPrices.get('E');
+            if(bCount <= (eCount/2)){
+            }
+            else{
+                int leftB = bCount - eCount/2;
+                if(leftB > 1){
+                    totalPrice = leftB * itemPrices.get('B');
+                }
+            }
+
             int freeBCount = eCount / 2;
             int remainingECount = eCount % 2;
 
@@ -112,3 +122,4 @@ public class CheckoutSolution {
         }
     }
 }
+
