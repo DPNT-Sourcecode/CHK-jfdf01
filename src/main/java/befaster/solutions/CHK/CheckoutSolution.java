@@ -30,7 +30,7 @@ public class CheckoutSolution {
         itemPrices.put('I', 35);
         itemPrices.put('J', 60);
         itemPrices.put('K', 80);
-        itemPrices.put('L', 95);
+        itemPrices.put('L', 90);
         itemPrices.put('M', 15);
         itemPrices.put('N', 40);
         itemPrices.put('O', 10);
@@ -331,6 +331,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 

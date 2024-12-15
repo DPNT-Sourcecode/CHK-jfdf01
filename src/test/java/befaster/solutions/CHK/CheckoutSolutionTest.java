@@ -113,5 +113,7 @@ public class CheckoutSolutionTest {
         assertEquals(120, checkoutMain.checkout("UUUU"), "Expected Price should be 120");
         assertEquals(120, checkoutMain.checkout("UUU"), "Expected Price should be 120");
 
+
     }
 }
+
