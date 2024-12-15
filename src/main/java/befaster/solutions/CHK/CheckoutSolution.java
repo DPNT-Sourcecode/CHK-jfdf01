@@ -26,15 +26,16 @@ public class CheckoutSolution {
                 'E', 40,
                 'F', 10,
                 'G', 20,
-                'H', 10
+                'H', 10,
+                'K', 80
         );
-
         Map<Character, Discount> discountOffers = new HashMap<>();
         discountOffers.put('A', new Discount(new int[]{3,5}, new int[]{130, 200}));
         discountOffers.put('B', new Discount(new int[]{2}, new int[]{45}));
         discountOffers.put('E', new Discount(2, 'B'));
         discountOffers.put('F', new Discount(2, 'F'));
         discountOffers.put('H', new Discount(new int[]{5,10}, new int[]{45, 80}));
+        discountOffers.put('K', new Discount(new int[]{2}, new int[]{150}));
 
         Map<Character, Integer> skuCounts = new HashMap<>();
         for(char sku: skus.toCharArray()){
@@ -77,6 +78,17 @@ public class CheckoutSolution {
                     totalPrice += 1 * itemPrices.get('B');
                     totalPrice += evenPairs * discountOffers.get('B').bundlePrices[0];
                 }
+            }
+        }
+
+        int kCount = skuCounts.getOrDefault('K', 0);
+        if(kCount > 1){
+            if(kCount%2 ==0)
+                totalPrice += (kCount/2) * discountOffers.get('K').bundlePrices[0];
+            else{
+                int evenPairs = kCount/2;
+                totalPrice += 1 * itemPrices.get('K');
+                totalPrice += evenPairs * discountOffers.get('K').bundlePrices[0];
             }
         }
 
@@ -170,4 +182,5 @@ public class CheckoutSolution {
         }
     }
 }
+
 
