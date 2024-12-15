@@ -32,9 +32,8 @@ public class CheckoutSolution {
         discountOffers.put('E', new Discount(2, 'B'));
 
         Map<Character, Integer> skuCounts = new HashMap<>();
-
         for(char sku: skus.toCharArray()){
-            skuCounts.put(sku, skuCounts.getOrDefault(sku,0) +1);
+            skuCounts.put(sku, skuCounts.getOrDefault(sku,0) + 1);
         }
 
 
@@ -44,7 +43,7 @@ public class CheckoutSolution {
         int eCount = skuCounts.getOrDefault('E', 0);
         int bCount = skuCounts.getOrDefault('B', 0);
 
-        if(eCount >=2){
+        if (eCount >= 2){
             int freeBCount = eCount / 2;
             int remainingECount = eCount % 2;
 
@@ -58,13 +57,10 @@ public class CheckoutSolution {
 
         //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
         for(char sku: skuCounts.keySet()){
-            //char sku = entry.getKey();
-            //int count = entry.getValue();
             if(sku == 'E' || sku == 'B'){
                 continue;
             }
             int count = skuCounts.get(sku);
-
              if(discountOffers.containsKey(sku)) {
                 Discount discount = discountOffers.get(sku);
 
@@ -85,11 +81,6 @@ public class CheckoutSolution {
                      count %= 2;
                      totalPrice +=  count * itemPrices.get(sku);
                  }
-
-                /*else {
-                    totalPrice += (count / discount.bundleSizes[0]) * discount.bundlePrices[0];
-                    totalPrice += (count % discount.bundleSizes[0]) * itemPrices.get(sku);
-                }*/
             }
             else {
                 totalPrice += count * itemPrices.get(sku);
@@ -121,3 +112,4 @@ public class CheckoutSolution {
         }
     }
 }
+
