@@ -55,6 +55,7 @@ public class CheckoutSolution {
         discountOffers.put('K', new Discount(new int[]{2}, new int[]{150}));
         discountOffers.put('N', new Discount(3, 'M'));
         discountOffers.put('P', new Discount(new int[]{5}, new int[]{200}));
+        discountOffers.put('Q', new Discount(new int[]{3}, new int[]{80}));
         discountOffers.put('R', new Discount(3, 'Q'));
         discountOffers.put('U', new Discount(3, 'U'));
         discountOffers.put('V', new Discount(new int[]{2,3}, new int[]{90, 130}));
@@ -324,6 +325,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
