@@ -46,4 +46,13 @@ public class CheckoutSolutionTest {
         assertEquals(-1, checkoutMain.checkout("XYZ"), "Expected Price should be -1");
         assertEquals(-1, checkoutMain.checkout("12AB"), "Expected Price should be -1");
     }
+
+    @Test
+    public void testNewOfferE(){
+        int expected = 80;
+        int actual = checkoutMain.checkout("EE");
+        assertEquals(expected, actual, "Expected value of 80");
+    }
+
 }
+
