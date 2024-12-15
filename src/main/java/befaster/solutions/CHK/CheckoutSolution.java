@@ -162,6 +162,7 @@ public class CheckoutSolution {
         } else if (fCount==1) {
             totalPrice += 1 * itemPrices.get('F');
         }
+
         // N and M
         int nCount = skuCounts.getOrDefault('N', 0);
         int mCount = skuCounts.getOrDefault('M', 0);
@@ -220,20 +221,31 @@ public class CheckoutSolution {
             }
         }
 
-
-
-        /*int qCount = skuCounts.getOrDefault('Q', 0);
-        if(qCount > 1){
-            if(qCount%3 ==0)
-                totalPrice += (qCount/3) * discountOffers.get('Q').bundlePrices[0];
-            else{
-                int disCountedQ = qCount / 3;
-                //int leftForDiscount = pCount - disCountedP;
-                totalPrice += disCountedQ * discountOffers.get('Q').bundlePrices[0];
-                int qLeft = qCount%3;
-                totalPrice += qLeft * itemPrices.get('Q');
+        // U
+        int uCount = skuCounts.getOrDefault('U', 0);
+        if(uCount>=3){
+            if(uCount % 4 ==0){
+                int CountableU = uCount - (uCount/4);
+                totalPrice += CountableU * itemPrices.get('U');
             }
-        }*/
+            else if (uCount % 4 == 1){
+                totalPrice += 1 * itemPrices.get('U');
+                int CountableU = (uCount - 1) - (uCount/4);
+                totalPrice += CountableU * itemPrices.get('U');
+            }
+            else if (uCount % 4 == 2){
+                totalPrice += 2 * itemPrices.get('U');
+                int CountableU = (uCount - 2) - (uCount/4);
+                totalPrice += CountableU * itemPrices.get('U');
+            }
+            else if (uCount % 4 == 3){
+                totalPrice += 3 * itemPrices.get('U');
+                int CountableU = (uCount - 3) - (uCount/4);
+                totalPrice += CountableU * itemPrices.get('U');
+            }
+        } else if (uCount==1) {
+            totalPrice += 1 * itemPrices.get('U');
+        }
 
 
         //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
@@ -305,6 +317,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
