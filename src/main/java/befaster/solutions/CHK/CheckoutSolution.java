@@ -27,8 +27,11 @@ public class CheckoutSolution {
                 'F', 10,
                 'G', 20,
                 'H', 10,
-                'K', 80
+                'K', 80,
+                'N', 40
         );
+
+
         Map<Character, Discount> discountOffers = new HashMap<>();
         discountOffers.put('A', new Discount(new int[]{3,5}, new int[]{130, 200}));
         discountOffers.put('B', new Discount(new int[]{2}, new int[]{45}));
@@ -36,6 +39,7 @@ public class CheckoutSolution {
         discountOffers.put('F', new Discount(2, 'F'));
         discountOffers.put('H', new Discount(new int[]{5,10}, new int[]{45, 80}));
         discountOffers.put('K', new Discount(new int[]{2}, new int[]{150}));
+        discountOffers.put('N', new Discount(3, 'M'));
 
         Map<Character, Integer> skuCounts = new HashMap<>();
         for(char sku: skus.toCharArray()){
@@ -112,6 +116,33 @@ public class CheckoutSolution {
             totalPrice += 1 * itemPrices.get('F');
         }
 
+        int nCount = skuCounts.getOrDefault('N', 0);
+        int mCount = skuCounts.getOrDefault('M', 0);
+
+        if (nCount >= 2){
+            totalPrice = nCount * itemPrices.get('N');
+            if(mCount > (nCount/2)){
+                int leftM = mCount - nCount/2;
+                if(leftM >= 1){
+                    totalPrice += leftM * itemPrices.get('M');
+                }
+            }
+        }
+        else{
+            totalPrice += eCount * itemPrices.get('E');
+            if(bCount == 1){
+                totalPrice += bCount * itemPrices.get('B');
+            }
+            if(bCount > 1){
+                if(bCount%2 ==0)
+                    totalPrice += (bCount/2) * discountOffers.get('B').bundlePrices[0];
+                else{
+                    int evenPairs = bCount/2;
+                    totalPrice += 1 * itemPrices.get('B');
+                    totalPrice += evenPairs * discountOffers.get('B').bundlePrices[0];
+                }
+            }
+        }
 
         //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
         for(char sku: skuCounts.keySet()){
@@ -182,5 +213,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
