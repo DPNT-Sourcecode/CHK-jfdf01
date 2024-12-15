@@ -24,7 +24,9 @@ public class CheckoutSolution {
                 'C', 20,
                 'D', 15,
                 'E', 40,
-                'F', 10
+                'F', 10,
+                'G', 20,
+                'H', 10
         );
 
         Map<Character, Discount> discountOffers = new HashMap<>();
@@ -32,6 +34,7 @@ public class CheckoutSolution {
         discountOffers.put('B', new Discount(new int[]{2}, new int[]{45}));
         discountOffers.put('E', new Discount(2, 'B'));
         discountOffers.put('F', new Discount(2, 'F'));
+        discountOffers.put('H', new Discount(new int[]{5,10}, new int[]{45, 80}));
 
         Map<Character, Integer> skuCounts = new HashMap<>();
         for(char sku: skus.toCharArray()){
@@ -119,6 +122,18 @@ public class CheckoutSolution {
 
                      totalPrice += count * itemPrices.get(sku);
                  }
+                if(sku == 'H'){
+                    if (count>=10){
+                        totalPrice += (count / 10) * discount.bundlePrices[1];
+                        count %= 10;
+                    }
+                    if(count>=5){
+                        totalPrice += (count / 5) * discount.bundlePrices[0];
+                        count %= 5;
+                    }
+
+                    totalPrice += count * itemPrices.get(sku);
+                }
                  else if(sku == 'B') {
                      totalPrice += (count / 2) * discount.bundlePrices[0];
                      count %= 2;
@@ -155,3 +170,4 @@ public class CheckoutSolution {
         }
     }
 }
+
