@@ -114,6 +114,9 @@ public class CheckoutSolution {
                 totalPrice += evenPairs * discountOffers.get('K').bundlePrices[0];
             }
         }
+        else if(kCount == 1){
+            totalPrice += 1 * itemPrices.get('K');
+        }
 
         // P
         int pCount = skuCounts.getOrDefault('P', 0);
@@ -127,6 +130,9 @@ public class CheckoutSolution {
                 int pLeft = pCount%5;
                 totalPrice += pLeft * itemPrices.get('P');
             }
+        }
+        else if(pCount == 1){
+            totalPrice += 1 * itemPrices.get('P');
         }
 
 
@@ -325,6 +331,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
