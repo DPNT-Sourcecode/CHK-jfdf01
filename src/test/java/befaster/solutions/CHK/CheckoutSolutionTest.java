@@ -64,5 +64,16 @@ public class CheckoutSolutionTest {
         assertEquals(80, checkoutMain.checkout("EEB"), "Expected Price should be 115");
     }
 
+    @Test
+    public void testInputForBB(){
+        assertEquals(45, checkoutMain.checkout("BB"), "Expected Price should be 45");
+    }
+
+    @Test
+    public void testInputForBBB(){
+        assertEquals(75, checkoutMain.checkout("BBB"), "Expected Price should be 75");
+    }
+
 }
+
 

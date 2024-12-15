@@ -58,12 +58,15 @@ public class CheckoutSolution {
 
                 }
             }
-
-            //int freeBCount = eCount / 2;
-            //int remainingECount = eCount % 2;
-
-            //totalPrice += remainingECount * itemPrices.get('E');
-            //totalPrice += (bCount - freeBCount) * itemPrices.get('B');
+        }
+        if(eCount == 0 && bCount >= 1){
+            if(bCount%2 ==0)
+                totalPrice += (bCount/2) * discountOffers.get('B').bundlePrices[0];
+            else{
+                int evenPairs = bCount/2;
+                totalPrice += 1 * itemPrices.get('B');
+                totalPrice += evenPairs * discountOffers.get('B').bundlePrices[0];
+            }
         }
         else{
             totalPrice += eCount * itemPrices.get('E');
@@ -127,6 +130,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
