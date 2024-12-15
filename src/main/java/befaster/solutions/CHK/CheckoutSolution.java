@@ -38,6 +38,22 @@ public class CheckoutSolution {
         }
 
         int totalPrice = 0;
+
+        int eCount = skuCounts.getOrDefault('E', 0);
+        int bCount = skuCounts.getOrDefault('B', 0);
+
+        if(eCount >=2){
+            int freeBCount = eCount / 2;
+            int remainingECount = eCount % 2;
+
+            totalPrice += remainingECount * itemPrices.get('E');
+            totalPrice +=  (bCount - freeBCount) * itemPrices.get('B');
+        }
+        else{
+            totalPrice += eCount * itemPrices.get('E');
+            totalPrice +=  bCount * itemPrices.get('B');
+        }
+
         for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
             char sku = entry.getKey();
             int count = entry.getValue();
@@ -58,12 +74,12 @@ public class CheckoutSolution {
                      totalPrice += count * itemPrices.get(sku);
                  }
                  else if(sku == 'E') {
-                     int freeBCount = count / 2;
-                     int remainingECount = count % 2;
+                     continue;
+                     //int freeBCount = count / 2;
+                     //int remainingECount = count % 2;
 
-                     totalPrice += remainingECount * itemPrices.get(sku);
-                     totalPrice +=  freeBCount * itemPrices.get('B');
-                     //totalPrice += (count - freeBCount) * itemPrices.get(sku);
+                     //totalPrice += remainingECount * itemPrices.get(sku);
+                     //totalPrice +=  freeBCount * itemPrices.get('B');
                  }
 
                 else {
@@ -99,3 +115,4 @@ public class CheckoutSolution {
         }
     }
 }
+
