@@ -47,7 +47,7 @@ public class CheckoutSolution {
                  if(sku == 'A'){
                      if (count>=5){
                          totalPrice += (count / 5) * discount.bundlePrices[1];
-                         count *= 5;
+                         count %= 5;
                      }
                      if(count>=3){
                          totalPrice += (count / 3) * discount.bundlePrices[0];
@@ -97,5 +97,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
