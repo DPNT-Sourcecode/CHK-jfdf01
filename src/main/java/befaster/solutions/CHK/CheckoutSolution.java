@@ -81,7 +81,7 @@ public class CheckoutSolution {
         if(fCount>=2){
             if(fCount % 3 ==0){
                 int CountableC = fCount - (fCount/3);
-                totalPrice += CountableC * discountOffers.get('F').bundlePrices[0];
+                totalPrice += CountableC * itemPrices.get('F');
             }
         }
 
@@ -142,6 +142,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
