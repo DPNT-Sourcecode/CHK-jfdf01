@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
-        if(skus == null || !skus.matches("[A-D]*")){
+        if(skus == null || !skus.matches("[A-D]+|E+")){
             return -1;
         }
 
@@ -16,12 +16,14 @@ public class CheckoutSolution {
                 'A', 50,
                 'B', 30,
                 'C', 20,
-                'D', 15
+                'D', 15,
+                'E', 40
         );
 
         Map<Character, Discount> discountOffers = new HashMap<>();
         discountOffers.put('A', new Discount(3, 130));
         discountOffers.put('B', new Discount(2, 45));
+        discountOffers.put('E', new Discount(2,0, 'B'));
 
         Map<Character, Integer> skuCounts = new HashMap<>();
 
@@ -51,10 +53,20 @@ public class CheckoutSolution {
     static class Discount{
         int bundleSize;
         int bundlePrice;
+        char freeItem;
 
         Discount(int bundleSize, int bundlePrice){
             this.bundleSize = bundleSize;
             this.bundlePrice = bundlePrice;
+            this.freeItem = 0;
+        }
+
+        // free item
+        public Discount(int bundleSize, int freeItemCount, char freeItem) {
+            this.bundleSize = bundleSize;
+            this.bundlePrice = 0; // NO price for the free item offer
+            this.freeItem = freeItem;
         }
     }
 }
+
