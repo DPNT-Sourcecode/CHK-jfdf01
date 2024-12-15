@@ -37,31 +37,21 @@ public class CheckoutSolution {
             skuCounts.put(sku, skuCounts.getOrDefault(sku,0) +1);
         }
 
-        int totalPrice = 0;
-
-        int eCount = skuCounts.getOrDefault('E', 0);
+        /*int eCount = skuCounts.getOrDefault('E', 0);
         int bCount = skuCounts.getOrDefault('B', 0);
 
         if(eCount >=2){
             int freeBCount = eCount / 2;
             int remainingECount = eCount % 2;
 
-            totalPrice += remainingECount * itemPrices.get('E');
-            totalPrice +=  (bCount - freeBCount) * itemPrices.get('B');
-        }
-        else{
-            totalPrice += eCount * itemPrices.get('E');
-            totalPrice +=  bCount * itemPrices.get('B');
-        }
 
-        //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
-        for(char sku: skuCounts.keySet()){
-            //char sku = entry.getKey();
-            //int count = entry.getValue();
-             if(sku == 'E') {
-               continue;
-             }
-             int count = skuCounts.get(sku);
+        }*/
+
+        int totalPrice = 0;
+        for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
+            char sku = entry.getKey();
+            int count = entry.getValue();
+
              if(discountOffers.containsKey(sku)) {
                 Discount discount = discountOffers.get(sku);
 
@@ -77,19 +67,14 @@ public class CheckoutSolution {
 
                      totalPrice += count * itemPrices.get(sku);
                  }
-                 else if(sku == 'B'){
-                     totalPrice += (count / 2) * discount.bundlePrices[0];
-                     count %= 2;
-                     totalPrice += count * itemPrices.get(sku);
-                 }
-                 //else if(sku == 'E') {
+                 else if(sku == 'E') {
                      //continue;
-                     //int freeBCount = count / 2;
-                     //int remainingECount = count % 2;
+                     int freeBCount = count / 2;
+                     int remainingECount = count % 2;
 
-                     //totalPrice += remainingECount * itemPrices.get(sku);
-                     //totalPrice +=  freeBCount * itemPrices.get('B');
-                 //}
+                     totalPrice += remainingECount * itemPrices.get(sku);
+                     totalPrice +=  freeBCount * itemPrices.get('B');
+                 }
 
                 else {
                     totalPrice += (count / discount.bundleSizes[0]) * discount.bundlePrices[0];
@@ -124,6 +109,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
