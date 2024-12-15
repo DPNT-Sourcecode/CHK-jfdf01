@@ -46,27 +46,27 @@ public class CheckoutSolution {
 
                  if(sku == 'A'){
                      if (count>=5){
-                         totalPrice += (count / 5) * discount.bundlePrice[1];
+                         totalPrice += (count / 5) * discount.bundlePrices[1];
                          count *= 5;
                      }
                      if(count>=3){
-                         totalPrice += (count / 3) * discount.bundlePrice[0];
+                         totalPrice += (count / 3) * discount.bundlePrices[0];
                          count %= 3;
                      }
 
                      totalPrice += count * itemPrices.get(sku);
                  }
-                else if(discount.freeItem !=0){
-                    //int freeBCount = (count / discount.bundleSize) * (count / discount.bundleSize);
-                     int freeBCount = (count / discount.bundleSize);
-                     int remainingECount = count % discount.bundleSize;
+                 else if(sku == 'E') {
+                     int freeBCount = count / 2;
+                     int remainingECount = count % 2;
 
-                    totalPrice += (remainingECount * itemPrices.get(sku));
-                    totalPrice +=  freeBCount * itemPrices.get('B');
-                }
+                     totalPrice += (remainingECount * itemPrices.get(sku));
+                     totalPrice +=  freeBCount * itemPrices.get('B');
+                 }
+
                 else {
-                    totalPrice += (count / discount.bundleSize) * discount.bundlePrice;
-                    totalPrice += (count % discount.bundleSize) * itemPrices.get(sku);
+                    totalPrice += (count / discount.bundleSizes[0]) * discount.bundlePrices[0];
+                    totalPrice += (count % discount.bundleSizes[0]) * itemPrices.get(sku);
                 }
             }
             else {
@@ -97,4 +97,5 @@ public class CheckoutSolution {
         }
     }
 }
+
 
