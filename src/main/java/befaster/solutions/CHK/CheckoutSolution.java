@@ -69,6 +69,7 @@ public class CheckoutSolution {
         discountOffers.put('K', new Discount(new int[]{2}, new int[]{150}));
         discountOffers.put('N', new Discount(3, 'M'));
         discountOffers.put('P', new Discount(new int[]{5}, new int[]{200}));
+        discountOffers.put('R', new Discount(3, 'Q'));
 
         Map<Character, Integer> skuCounts = new HashMap<>();
         for(char sku: skus.toCharArray()){
@@ -172,7 +173,7 @@ public class CheckoutSolution {
         } else if (fCount==1) {
             totalPrice += 1 * itemPrices.get('F');
         }
-
+        // N and M
         int nCount = skuCounts.getOrDefault('N', 0);
         int mCount = skuCounts.getOrDefault('M', 0);
 
@@ -189,6 +190,44 @@ public class CheckoutSolution {
             totalPrice += nCount * itemPrices.get('N');
             totalPrice += mCount * itemPrices.get('M');
 
+        }
+
+        // R and Q
+        int totalPrice = 0;
+
+        int eCount = skuCounts.getOrDefault('E', 0);
+        int bCount = skuCounts.getOrDefault('B', 0);
+
+        if (eCount >= 2){
+            totalPrice = eCount * itemPrices.get('E');
+            if(bCount > (eCount/2)){
+                int leftB = bCount - eCount/2;
+                if(leftB >= 1){
+                    if(leftB%2 ==0)
+                        totalPrice += (leftB/2) * discountOffers.get('B').bundlePrices[0];
+                    else{
+                        int evenPairs = leftB/2;
+                        totalPrice += 1 * itemPrices.get('B');
+                        totalPrice += evenPairs * discountOffers.get('B').bundlePrices[0];
+                    }
+
+                }
+            }
+        }
+        else{
+            totalPrice += eCount * itemPrices.get('E');
+            if(bCount == 1){
+                totalPrice += bCount * itemPrices.get('B');
+            }
+            if(bCount > 1){
+                if(bCount%2 ==0)
+                    totalPrice += (bCount/2) * discountOffers.get('B').bundlePrices[0];
+                else{
+                    int evenPairs = bCount/2;
+                    totalPrice += 1 * itemPrices.get('B');
+                    totalPrice += evenPairs * discountOffers.get('B').bundlePrices[0];
+                }
+            }
         }
 
         //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
@@ -260,5 +299,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
