@@ -9,7 +9,7 @@ import java.util.Map;
 public class CheckoutSolution {
     public Integer checkout(String skus) {
         //if(skus == null || !skus.matches("^[ABCD]*[E]*$")){
-        if(skus == null || !skus.matches("^[ABCDE]*$")){
+        if(skus == null || !skus.matches("^[ABCDEF]*$")){
             return -1;
         }
 
@@ -23,13 +23,15 @@ public class CheckoutSolution {
                 'B', 30,
                 'C', 20,
                 'D', 15,
-                'E', 40
+                'E', 40,
+                'F', 10
         );
 
         Map<Character, Discount> discountOffers = new HashMap<>();
         discountOffers.put('A', new Discount(new int[]{3,5}, new int[]{130, 200}));
         discountOffers.put('B', new Discount(new int[]{2}, new int[]{45}));
         discountOffers.put('E', new Discount(2, 'B'));
+        discountOffers.put('F', new Discount(2, 'F'));
 
         Map<Character, Integer> skuCounts = new HashMap<>();
         for(char sku: skus.toCharArray()){
@@ -74,6 +76,8 @@ public class CheckoutSolution {
                 }
             }
         }
+
+        int fCount = skuCounts.getOrDefault('F', 0);
 
         //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
         for(char sku: skuCounts.keySet()){
@@ -132,5 +136,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
