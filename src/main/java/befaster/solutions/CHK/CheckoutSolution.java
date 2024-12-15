@@ -91,10 +91,10 @@ public class CheckoutSolution {
                      //totalPrice +=  freeBCount * itemPrices.get('B');
                  //}
 
-                /*else {
+                else {
                     totalPrice += (count / discount.bundleSizes[0]) * discount.bundlePrices[0];
                     totalPrice += (count % discount.bundleSizes[0]) * itemPrices.get(sku);
-                }*/
+                }
             }
             else {
                 totalPrice += count * itemPrices.get(sku);
@@ -124,6 +124,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
