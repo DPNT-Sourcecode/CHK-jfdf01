@@ -12,6 +12,11 @@ public class CheckoutSolution {
             return -1;
         }
 
+        if(skus == "" )
+        {
+            return 0;
+        }
+
         Map<Character, Integer> itemPrices = Map.of(
                 'A', 50,
                 'B', 30,
@@ -78,5 +83,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
