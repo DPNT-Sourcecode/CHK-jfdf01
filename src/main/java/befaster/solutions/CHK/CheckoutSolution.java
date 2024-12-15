@@ -94,6 +94,9 @@ public class CheckoutSolution {
                 totalPrice += CountableC * itemPrices.get('F');
             }
         }
+        else{
+            totalPrice += 1 * itemPrices.get('F');
+        }
 
         //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
         for(char sku: skuCounts.keySet()){
@@ -152,6 +155,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
