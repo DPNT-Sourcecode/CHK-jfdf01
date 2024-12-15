@@ -60,8 +60,9 @@ public class CheckoutSolution {
                      int freeBCount = count / 2;
                      int remainingECount = count % 2;
 
-                     totalPrice += (remainingECount * itemPrices.get(sku));
+                     totalPrice += remainingECount * itemPrices.get(sku);
                      totalPrice +=  freeBCount * itemPrices.get('B');
+                     totalPrice += (count - freeBCount) * itemPrices.get(sku);
                  }
 
                 else {
@@ -97,6 +98,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
