@@ -140,19 +140,7 @@ public class CheckoutSolution {
             }
         }
 
-        // Q
-        int qCount = skuCounts.getOrDefault('Q', 0);
-        if(qCount > 1){
-            if(qCount%3 ==0)
-                totalPrice += (qCount/3) * discountOffers.get('Q').bundlePrices[0];
-            else{
-                int disCountedQ = qCount / 3;
-                //int leftForDiscount = pCount - disCountedP;
-                totalPrice += disCountedQ * discountOffers.get('Q').bundlePrices[0];
-                int qLeft = qCount%3;
-                totalPrice += qLeft * itemPrices.get('Q');
-            }
-        }
+
 
         int fCount = skuCounts.getOrDefault('F', 0);
         if(fCount>=2){
@@ -193,22 +181,22 @@ public class CheckoutSolution {
         }
 
         // R and Q
-        int totalPrice = 0;
 
-        int eCount = skuCounts.getOrDefault('E', 0);
-        int bCount = skuCounts.getOrDefault('B', 0);
+        int rCount = skuCounts.getOrDefault('R', 0);
+        int qCount = skuCounts.getOrDefault('Q', 0);
 
-        if (eCount >= 2){
-            totalPrice = eCount * itemPrices.get('E');
-            if(bCount > (eCount/2)){
-                int leftB = bCount - eCount/2;
-                if(leftB >= 1){
-                    if(leftB%2 ==0)
-                        totalPrice += (leftB/2) * discountOffers.get('B').bundlePrices[0];
+        if (rCount >= 3){
+            totalPrice = qCount * itemPrices.get('R');
+            if(qCount > (qCount/3)){
+                int leftQ = qCount - eCount/3;
+                if(leftQ >= 1){
+                    if(leftQ%3 ==0)
+                        totalPrice += (leftQ/3) * discountOffers.get('Q').bundlePrices[0];
                     else{
-                        int evenPairs = leftB/2;
-                        totalPrice += 1 * itemPrices.get('B');
-                        totalPrice += evenPairs * discountOffers.get('B').bundlePrices[0];
+                        int disCountedQ = leftQ / 3;
+                        totalPrice += disCountedQ * discountOffers.get('Q').bundlePrices[0];
+                        int qLeft = leftQ%3;
+                        totalPrice += qLeft * itemPrices.get('Q');
                     }
 
                 }
@@ -229,6 +217,22 @@ public class CheckoutSolution {
                 }
             }
         }
+
+
+
+        /*int qCount = skuCounts.getOrDefault('Q', 0);
+        if(qCount > 1){
+            if(qCount%3 ==0)
+                totalPrice += (qCount/3) * discountOffers.get('Q').bundlePrices[0];
+            else{
+                int disCountedQ = qCount / 3;
+                //int leftForDiscount = pCount - disCountedP;
+                totalPrice += disCountedQ * discountOffers.get('Q').bundlePrices[0];
+                int qLeft = qCount%3;
+                totalPrice += qLeft * itemPrices.get('Q');
+            }
+        }*/
+
 
         //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
         for(char sku: skuCounts.keySet()){
@@ -299,6 +303,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
