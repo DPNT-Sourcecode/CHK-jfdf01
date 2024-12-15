@@ -17,6 +17,34 @@ public class CheckoutSolution {
         {
             return 0;
         }
+        // P    | 50    | 5P for 200
+        Map<Character, Integer> itemPrices = new HashMap<>();
+        itemPrices.put('A', 50);
+        itemPrices.put('B', 30);
+        itemPrices.put('C', 20);
+        itemPrices.put('D', 50);
+        itemPrices.put('E', 50);
+        itemPrices.put('F', 50);
+        itemPrices.put('G', 50);
+        itemPrices.put('H', 50);
+        itemPrices.put('I', 50);
+        itemPrices.put('J', 50);
+        itemPrices.put('K', 50);
+        itemPrices.put('L', 50);
+        itemPrices.put('M', 50);
+        itemPrices.put('N', 50);
+        itemPrices.put('O', 50);
+        itemPrices.put('P', 50);
+        itemPrices.put('Q', 50);
+        itemPrices.put('R', 50);
+        itemPrices.put('S', 50);
+        itemPrices.put('T', 50);
+        itemPrices.put('U', 50);
+        itemPrices.put('V', 50);
+        itemPrices.put('W', 50);
+        itemPrices.put('X', 50);
+        itemPrices.put('Y', 50);
+        itemPrices.put('Z', 50);
 
         Map<Character, Integer> itemPrices = Map.of(
                 'A', 50,
@@ -27,10 +55,31 @@ public class CheckoutSolution {
                 'F', 10,
                 'G', 20,
                 'H', 10,
-                'K', 80,
-                'N', 40
+                'I', 35,
+                'J', 60,
+                'K', 80
         );
 
+        /*
+        * 'I', 35,
+                'J', 60,
+                'K', 80,
+                'L', 95,
+                'M', 15,
+                'N', 40,
+                'O', 10,
+                'P', 50,
+                'Q', 30,
+                'R', 50,
+                'S', 30,
+                'T', 20,
+                'U', 40,
+                'V', 50,
+                'W', 20,
+                'X', 90,
+                'Y', 10,
+                'Z', 50
+        * */
 
         Map<Character, Discount> discountOffers = new HashMap<>();
         discountOffers.put('A', new Discount(new int[]{3,5}, new int[]{130, 200}));
@@ -203,6 +252,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
