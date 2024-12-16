@@ -127,9 +127,8 @@ public class CheckoutSolution {
                 totalPrice += (pCount/5) * discountOffers.get('P').bundlePrices[0];
             else{
                 int disCountedP = pCount / 5;
-                //int leftForDiscount = pCount - disCountedP;
                 totalPrice += disCountedP * discountOffers.get('P').bundlePrices[0];
-                int pLeft = pCount%5;
+                int pLeft = pCount % 5;
                 totalPrice += pLeft * itemPrices.get('P');
             }
         }
@@ -343,4 +342,5 @@ public class CheckoutSolution {
         }
     }
 }
+
 
