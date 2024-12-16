@@ -36,14 +36,14 @@ public class CheckoutSolution {
         itemPrices.put('P', 50);
         itemPrices.put('Q', 30);
         itemPrices.put('R', 50);
-        itemPrices.put('S', 30);
+        itemPrices.put('S', 20);
         itemPrices.put('T', 20);
         itemPrices.put('U', 40);
         itemPrices.put('V', 50);
         itemPrices.put('W', 20);
-        itemPrices.put('X', 90);
-        itemPrices.put('Y', 10);
-        itemPrices.put('Z', 50);
+        itemPrices.put('X', 17);
+        itemPrices.put('Y', 20);
+        itemPrices.put('Z', 21);
 
         Map<Character, Discount> discountOffers = new HashMap<>();
         discountOffers.put('A', new Discount(new int[]{3,5}, new int[]{130, 200}));
@@ -362,3 +362,4 @@ public class CheckoutSolution {
         }
     }
 }
+
