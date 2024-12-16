@@ -218,10 +218,3 @@ public class CheckoutSolutionTest {
         assertEquals(120, checkoutMain.checkout("NNNM"));
     }
 }
-
-
-
-
-
-
-

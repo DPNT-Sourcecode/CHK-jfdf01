@@ -343,8 +343,3 @@ public class CheckoutSolution {
         }
     }
 }
-
-
-
-
-
