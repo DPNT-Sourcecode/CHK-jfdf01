@@ -129,9 +129,10 @@ public class CheckoutSolutionTest {
 
     @Test
     public void testInputForRandomSmall(){
-        assertEquals(30, checkoutMain.checkout("S"));;
+        assertEquals(710, checkoutMain.checkout("PPPPQRUVPQRUVPQRUVU"));;
     }
 }
+
 
 
 
