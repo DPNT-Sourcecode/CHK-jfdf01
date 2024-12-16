@@ -210,9 +210,15 @@ public class CheckoutSolutionTest {
 
     @Test
     public void testInputForLongValue3(){
-        assertEquals(960, checkoutMain.checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHH"));
+        assertEquals(1135, checkoutMain.checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHVVVBB"));
+    }
+
+    @Test
+    public void testInputForLongValue4(){
+        assertEquals(120, checkoutMain.checkout("NNNM"));
     }
 }
+
 
 
 

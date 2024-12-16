@@ -75,7 +75,7 @@ public class CheckoutSolution {
         int bCount = skuCounts.getOrDefault('B', 0);
 
         if (eCount >= 2){
-            totalPrice = eCount * itemPrices.get('E');
+            totalPrice += eCount * itemPrices.get('E');
             if(bCount > (eCount/2)){
                 int leftB = bCount - eCount/2;
                 if(leftB >= 1){
@@ -148,7 +148,7 @@ public class CheckoutSolution {
         int mCount = skuCounts.getOrDefault('M', 0);
 
         if (nCount >= 3){
-            totalPrice = nCount * itemPrices.get('N');
+            totalPrice += nCount * itemPrices.get('N');
             if(mCount > (nCount/3)){
                 int leftM = mCount - nCount/3;
                 if(leftM >= 1){
@@ -343,6 +343,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 
