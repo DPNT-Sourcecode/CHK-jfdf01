@@ -220,6 +220,22 @@ public class CheckoutSolutionTest {
 
     @Test
     public void testGroupItems(){
-        assertEquals(61, checkoutMain.checkout("STXYZ"));
+        assertEquals(82, checkoutMain.checkout("STXYZ"));
+    }
+
+    @Test
+    public void testGroupItems1(){
+        assertEquals(40, checkoutMain.checkout("ST"));
+    }
+
+    @Test
+    public void testGroupItems2(){
+        assertEquals(162, checkoutMain.checkout("STXYZAB"));
+    }
+
+    @Test
+    public void testGroupItems3(){
+        assertEquals(86, checkoutMain.checkout("STTVXXYZ"));
     }
 }
+
