@@ -120,13 +120,13 @@ public class CheckoutSolution {
 
         // ------------------------------P------------------------------
         int pCount = skuCounts.getOrDefault('P', 0);
-        if(pCount > 1){
+        if(pCount >= 5){
             if(pCount%5 ==0)
                 totalPrice += (pCount/5) * discountOffers.get('P').bundlePrices[0];
             else{
                 int disCountedP = pCount / 5;
                 //int leftForDiscount = pCount - disCountedP;
-                totalPrice += disCountedP * discountOffers.get('P').bundlePrices[0];;
+                totalPrice += disCountedP * discountOffers.get('P').bundlePrices[0];
                 int pLeft = pCount%5;
                 totalPrice += pLeft * itemPrices.get('P');
             }
@@ -134,6 +134,16 @@ public class CheckoutSolution {
         else if(pCount == 1){
             totalPrice += 1 * itemPrices.get('P');
         }
+        else if(pCount == 2){
+            totalPrice += 2 * itemPrices.get('P');
+        }
+        else if(pCount == 3){
+            totalPrice += 3 * itemPrices.get('P');
+        }
+        else if(pCount == 4){
+            totalPrice += 4 * itemPrices.get('P');
+        }
+
 
 
         // ------------------------------F------------------------------
@@ -331,3 +341,4 @@ public class CheckoutSolution {
         }
     }
 }
+
