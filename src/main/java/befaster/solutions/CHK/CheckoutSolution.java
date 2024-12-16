@@ -194,7 +194,7 @@ public class CheckoutSolution {
         int qCount = skuCounts.getOrDefault('Q', 0);
 
         if (rCount >= 3){
-            totalPrice = rCount * itemPrices.get('R');
+            totalPrice += rCount * itemPrices.get('R');
             if(qCount > (rCount/3)){
                 int leftQ = qCount - rCount/3;
                 if(leftQ >= 1){
@@ -343,6 +343,7 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
 

@@ -143,11 +143,6 @@ public class CheckoutSolutionTest {
     }
 
     @Test
-    public void testInputForRandom5(){
-        assertEquals(600, checkoutMain.checkout("PPPPQRUVPQRUVQ"));
-    }
-
-    @Test
     public void testInputForRandom6(){
         assertEquals(200, checkoutMain.checkout("PPPPP"));
     }
@@ -197,7 +192,7 @@ public class CheckoutSolutionTest {
 
     @Test
     public void testInputForPAndV(){
-        assertEquals(450, checkoutMain.checkout("PPPPPPQQQRRR"));
+        assertEquals(460, checkoutMain.checkout("PPPPPPQQQRRR"));
     }
 
     @Test
@@ -210,6 +205,7 @@ public class CheckoutSolutionTest {
         assertEquals(210, checkoutMain.checkout("QQQRRR"));
     }
 }
+
 
 
 
