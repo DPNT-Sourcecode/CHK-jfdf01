@@ -105,6 +105,29 @@ public class CheckoutSolution {
                 }
             }
         }
+
+
+        // ------------------------------F------------------------------
+        int fCount = skuCounts.getOrDefault('F', 0);
+        if(fCount>=2){
+            if(fCount % 3 ==0){
+                int CountableC = fCount - (fCount/3);
+                totalPrice += CountableC * itemPrices.get('F');
+            }
+            else if (fCount % 3 == 1){
+                totalPrice += 1 * itemPrices.get('F');
+                int CountableC = (fCount - 1) - (fCount/3);
+                totalPrice += CountableC * itemPrices.get('F');
+            }
+            else if (fCount % 3 == 2){
+                totalPrice += 2 * itemPrices.get('F');
+                int CountableC = (fCount - 2) - (fCount/3);
+                totalPrice += CountableC * itemPrices.get('F');
+            }
+        } else if (fCount==1) {
+            totalPrice += 1 * itemPrices.get('F');
+        }
+
         // ------------------------------K------------------------------
         int kCount = skuCounts.getOrDefault('K', 0);
         if(kCount > 1){
@@ -118,6 +141,25 @@ public class CheckoutSolution {
         }
         else if(kCount == 1){
             totalPrice += 1 * itemPrices.get('K');
+        }
+
+        // ------------------------------N and M------------------------------
+        int nCount = skuCounts.getOrDefault('N', 0);
+        int mCount = skuCounts.getOrDefault('M', 0);
+
+        if (nCount >= 3){
+            totalPrice = nCount * itemPrices.get('N');
+            if(mCount > (nCount/3)){
+                int leftM = mCount - nCount/3;
+                if(leftM >= 1){
+                    totalPrice += leftM * itemPrices.get('M');
+                }
+            }
+        }
+        else{
+            totalPrice += nCount * itemPrices.get('N');
+            totalPrice += mCount * itemPrices.get('M');
+
         }
 
         // ------------------------------P------------------------------
@@ -145,47 +187,6 @@ public class CheckoutSolution {
             totalPrice += 4 * itemPrices.get('P');
         }
 
-
-
-        // ------------------------------F------------------------------
-        int fCount = skuCounts.getOrDefault('F', 0);
-        if(fCount>=2){
-            if(fCount % 3 ==0){
-                int CountableC = fCount - (fCount/3);
-                totalPrice += CountableC * itemPrices.get('F');
-            }
-            else if (fCount % 3 == 1){
-                totalPrice += 1 * itemPrices.get('F');
-                int CountableC = (fCount - 1) - (fCount/3);
-                totalPrice += CountableC * itemPrices.get('F');
-            }
-            else if (fCount % 3 == 2){
-                totalPrice += 2 * itemPrices.get('F');
-                int CountableC = (fCount - 2) - (fCount/3);
-                totalPrice += CountableC * itemPrices.get('F');
-            }
-        } else if (fCount==1) {
-            totalPrice += 1 * itemPrices.get('F');
-        }
-
-        // ------------------------------N and M------------------------------
-        int nCount = skuCounts.getOrDefault('N', 0);
-        int mCount = skuCounts.getOrDefault('M', 0);
-
-        if (nCount >= 3){
-            totalPrice = nCount * itemPrices.get('N');
-            if(mCount > (nCount/3)){
-                int leftM = mCount - nCount/3;
-                if(leftM >= 1){
-                    totalPrice += leftM * itemPrices.get('M');
-                }
-            }
-        }
-        else{
-            totalPrice += nCount * itemPrices.get('N');
-            totalPrice += mCount * itemPrices.get('M');
-
-        }
 
         // ------------------------------R and Q------------------------------
 
@@ -342,5 +343,6 @@ public class CheckoutSolution {
         }
     }
 }
+
 
 
