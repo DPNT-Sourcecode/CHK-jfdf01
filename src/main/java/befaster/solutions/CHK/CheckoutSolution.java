@@ -3,9 +3,7 @@ package befaster.solutions.CHK;
 import befaster.runner.SolutionNotImplementedException;
 import com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class CheckoutSolution {
     public Integer checkout(String skus) {
@@ -259,7 +257,34 @@ public class CheckoutSolution {
         else if (uCount==1) {
             totalPrice += 1 * itemPrices.get('U');
         }
-        
+
+        int groupOfferPrice = 45;
+
+        List<Character> groupSku = Arrays.asList('S','T','X','Y','Z');
+        List<Character> sortedGroupSku = new ArrayList<>(groupSku);
+        sortedGroupSku.sort(Comparator.comparingInt(itemPrices::get));
+
+        int groupCount = 0;
+        for(char item: groupSku){
+            groupCount += skuCounts.getOrDefault(item,0);
+        }
+
+        int groupBundles = groupCount / 3;
+        int remainingSku = groupCount % 3;
+
+        totalPrice += groupBundles * groupOfferPrice;
+
+        for(char item: sortedGroupSku){
+            int count = skuCounts.getOrDefault(item,0);
+            if(remainingSku <= 0){
+                break;
+            }
+            int usedForRemaining = Math.min(count, remainingSku);
+
+            totalPrice += usedForRemaining * itemPrices.get(item);
+            remainingSku -= usedForRemaining;
+        }
+
         for(char sku: skuCounts.keySet()){
             if(sku == 'E' || sku == 'B' || sku == 'F' || sku == 'K' || sku == 'M' || sku == 'N'
                     || sku == 'P' || sku == 'Q' || sku == 'R' || sku == 'U'){
@@ -335,4 +360,5 @@ public class CheckoutSolution {
         }
     }
 }
+
 
