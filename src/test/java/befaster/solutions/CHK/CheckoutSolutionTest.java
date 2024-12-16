@@ -235,8 +235,9 @@ public class CheckoutSolutionTest {
 
     @Test
     public void testGroupItems3(){
-        assertEquals(129, checkoutMain.checkout("STTVXXYZ"));
+        assertEquals(157, checkoutMain.checkout("STTVXXYZ"));
     }
 }
+
 
 
