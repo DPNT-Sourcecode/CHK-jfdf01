@@ -217,4 +217,9 @@ public class CheckoutSolutionTest {
     public void testInputForLongValue4(){
         assertEquals(120, checkoutMain.checkout("NNNM"));
     }
+
+    @Test
+    public void testGroupItems(){
+        assertEquals(61, checkoutMain.checkout("STXYZ"));
+    }
 }

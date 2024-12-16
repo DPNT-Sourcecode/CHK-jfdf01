@@ -258,6 +258,7 @@ public class CheckoutSolution {
             totalPrice += 1 * itemPrices.get('U');
         }
 
+        // ------------------------------'S','T','X','Y','Z'------------------------------
         int groupOfferPrice = 45;
 
         List<Character> groupSku = Arrays.asList('S','T','X','Y','Z');
@@ -287,7 +288,8 @@ public class CheckoutSolution {
 
         for(char sku: skuCounts.keySet()){
             if(sku == 'E' || sku == 'B' || sku == 'F' || sku == 'K' || sku == 'M' || sku == 'N'
-                    || sku == 'P' || sku == 'Q' || sku == 'R' || sku == 'U'){
+                    || sku == 'P' || sku == 'Q' || sku == 'R' || sku == 'U'
+                    || sku == 'S' || sku == 'T' || sku == 'X' || sku == 'Y' || sku == 'Z'){
                 continue;
             }
             int count = skuCounts.get(sku);
@@ -360,5 +362,3 @@ public class CheckoutSolution {
         }
     }
 }
-
-
