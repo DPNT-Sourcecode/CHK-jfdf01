@@ -192,11 +192,3 @@ public class CheckoutSolutionTest {
         assertEquals(340, checkoutMain.checkout("PPPPVPVP"));
     }
 }
-
-
-
-
-
-
-
-
