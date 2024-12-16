@@ -152,38 +152,32 @@ public class CheckoutSolutionTest {
         assertEquals(350, checkoutMain.checkout("QRUVQRUVQ"));
     }
 
-    // PPPPQRUVPQRUVPQ RUVSU
+
     @Test
     public void testInputForRandom8(){
         assertEquals(600, checkoutMain.checkout("PPPPQRUVPQRUVPQ"));
     }
 
-    // PPPPQRUVPQRUVPQ RUVSU
     @Test
     public void testInputForRandom9(){
         assertEquals(180, checkoutMain.checkout("QRQRQ"));
     }
 
-    // PPPPQRUVPQRUVPQ RUVSU
+
     @Test
     public void testInputForRandom10(){
         assertEquals(210, checkoutMain.checkout("QRQRQR"));
     }
 
-    // PPPPQRUVPQRUVPQ RUVSU
-    //PPPPQRUVPQRUVPQRUVSU
     @Test
     public void testInputForRandom11(){
         assertEquals(380, checkoutMain.checkout("QQQRRRUUVV"));
     }
 
-    // PPPPQRUVPQRUVPQ RUVSU
-    //PPPPQRUVPQRUVPQRUVSU
     @Test
     public void testInputForRandom12(){
         assertEquals(380, checkoutMain.checkout("QQQRRRUUVV"));
     }
-
 
     @Test
     public void testInputForRandom3(){
@@ -204,7 +198,22 @@ public class CheckoutSolutionTest {
     public void testInputForPAndV2(){
         assertEquals(210, checkoutMain.checkout("QQQRRR"));
     }
+
+    @Test
+    public void testInputForLongValue1(){
+        assertEquals(1640, checkoutMain.checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHHVVVBBNNNMFFFKKQQQVVHHHHH"));
+    }
+    @Test
+    public void testInputForLongValue2(){
+        assertEquals(880, checkoutMain.checkout("AAAAAPPPPPUUUUEEBRRRQAAA"));
+    }
+
+    @Test
+    public void testInputForLongValue3(){
+        assertEquals(960, checkoutMain.checkout("AAAAAPPPPPUUUUEEBRRRQAAAHHHHHHHHHH"));
+    }
 }
+
 
 
 
