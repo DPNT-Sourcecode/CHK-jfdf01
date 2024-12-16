@@ -30,7 +30,7 @@ public class CheckoutSolution {
         itemPrices.put('H', 10);
         itemPrices.put('I', 35);
         itemPrices.put('J', 60);
-        itemPrices.put('K', 80);
+        itemPrices.put('K', 70);
         itemPrices.put('L', 90);
         itemPrices.put('M', 15);
         itemPrices.put('N', 40);
@@ -53,7 +53,7 @@ public class CheckoutSolution {
         discountOffers.put('E', new Discount(2, 'B'));
         discountOffers.put('F', new Discount(2, 'F'));
         discountOffers.put('H', new Discount(new int[]{5,10}, new int[]{45, 80}));
-        discountOffers.put('K', new Discount(new int[]{2}, new int[]{150}));
+        discountOffers.put('K', new Discount(new int[]{2}, new int[]{120}));
         discountOffers.put('N', new Discount(3, 'M'));
         discountOffers.put('P', new Discount(new int[]{5}, new int[]{200}));
         discountOffers.put('Q', new Discount(new int[]{3}, new int[]{80}));
@@ -259,9 +259,7 @@ public class CheckoutSolution {
         else if (uCount==1) {
             totalPrice += 1 * itemPrices.get('U');
         }
-
-
-        //for(Map.Entry<Character, Integer> entry: skuCounts.entrySet()){
+        
         for(char sku: skuCounts.keySet()){
             if(sku == 'E' || sku == 'B' || sku == 'F' || sku == 'K' || sku == 'M' || sku == 'N'
                     || sku == 'P' || sku == 'Q' || sku == 'R' || sku == 'U'){
@@ -307,18 +305,12 @@ public class CheckoutSolution {
 
                     totalPrice += count * itemPrices.get(sku);
                 }
-                 /*else if(sku == 'B') {
-                     totalPrice += (count / 2) * discount.bundlePrices[0];
-                     count %= 2;
-                     totalPrice +=  count * itemPrices.get(sku);
-                 }*/
+
             }
             else {
                 totalPrice += count * itemPrices.get(sku);
             }
         }
-        //totalPrice +=  skuCounts.getOrDefault('C', 0) * itemPrices.get('C');
-        //totalPrice +=  skuCounts.getOrDefault('D', 0) * itemPrices.get('D');
 
         return totalPrice;
         //throw new SolutionNotImplementedException();
@@ -343,3 +335,4 @@ public class CheckoutSolution {
         }
     }
 }
+
