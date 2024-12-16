@@ -197,7 +197,8 @@ public class CheckoutSolutionTest {
 
     @Test
     public void testInputForPAndV(){
-        assertEquals(340, checkoutMain.checkout("PPPPVPVP"));
+        assertEquals(450, checkoutMain.checkout("PPPPPPQQQRRR"));
     }
 }
+
 

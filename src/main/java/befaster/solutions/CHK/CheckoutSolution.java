@@ -213,7 +213,7 @@ public class CheckoutSolution {
         else{
             totalPrice += rCount * itemPrices.get('R');
             if(qCount == 1 || qCount == 2 ){
-                totalPrice += qCount * itemPrices.get('B');
+                totalPrice += qCount * itemPrices.get('Q');
             }
             if(qCount > 2){
                 if(qCount%3 ==0)
@@ -343,3 +343,4 @@ public class CheckoutSolution {
         }
     }
 }
+
