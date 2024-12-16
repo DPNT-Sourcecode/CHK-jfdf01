@@ -3,6 +3,7 @@ package befaster.solutions.CHK;
 import befaster.runner.SolutionNotImplementedException;
 import com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,10 +62,11 @@ public class CheckoutSolution {
         discountOffers.put('V', new Discount(new int[]{2,3}, new int[]{90, 130}));
 
         Map<Character, Integer> skuCounts = new HashMap<>();
-        for(char sku: skus.toCharArray()){
+        char[] skuCharArray = skus.toCharArray();
+        Arrays.sort(skuCharArray);
+        for(char sku: skuCharArray){
             skuCounts.put(sku, skuCounts.getOrDefault(sku,0) + 1);
         }
-
 
         // ------------------------------E and B------------------------------
         int totalPrice = 0;
@@ -341,4 +343,5 @@ public class CheckoutSolution {
         }
     }
 }
+
 
