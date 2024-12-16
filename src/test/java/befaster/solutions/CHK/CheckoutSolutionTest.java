@@ -134,8 +134,14 @@ public class CheckoutSolutionTest {
 
     @Test
     public void testInputForRandom2(){
-        assertEquals(270, checkoutMain.checkout("QRUVPQ"));
+        assertEquals(300, checkoutMain.checkout("QRUVPQR"));
     }
+
+    @Test
+    public void testInputForRandom4(){
+        assertEquals(380, checkoutMain.checkout("QRUVPQRUV"));
+    }
+
 
     @Test
     public void testInputForRandom3(){
@@ -147,3 +153,4 @@ public class CheckoutSolutionTest {
         assertEquals(340, checkoutMain.checkout("PPPPVPVP"));;
     }
 }
+
