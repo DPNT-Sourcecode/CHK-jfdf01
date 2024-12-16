@@ -66,7 +66,7 @@ public class CheckoutSolution {
         }
 
 
-        // E and B
+        // ------------------------------E and B------------------------------
         int totalPrice = 0;
 
         int eCount = skuCounts.getOrDefault('E', 0);
@@ -103,7 +103,7 @@ public class CheckoutSolution {
                 }
             }
         }
-        // K
+        // ------------------------------K------------------------------
         int kCount = skuCounts.getOrDefault('K', 0);
         if(kCount > 1){
             if(kCount%2 ==0)
@@ -118,7 +118,7 @@ public class CheckoutSolution {
             totalPrice += 1 * itemPrices.get('K');
         }
 
-        // P
+        // ------------------------------P------------------------------
         int pCount = skuCounts.getOrDefault('P', 0);
         if(pCount > 1){
             if(pCount%5 ==0)
@@ -136,7 +136,7 @@ public class CheckoutSolution {
         }
 
 
-        // F
+        // ------------------------------F------------------------------
         int fCount = skuCounts.getOrDefault('F', 0);
         if(fCount>=2){
             if(fCount % 3 ==0){
@@ -157,7 +157,7 @@ public class CheckoutSolution {
             totalPrice += 1 * itemPrices.get('F');
         }
 
-        // N and M
+        // ------------------------------N and M------------------------------
         int nCount = skuCounts.getOrDefault('N', 0);
         int mCount = skuCounts.getOrDefault('M', 0);
 
@@ -176,7 +176,7 @@ public class CheckoutSolution {
 
         }
 
-        // R and Q
+        // ------------------------------R and Q------------------------------
 
         int rCount = skuCounts.getOrDefault('R', 0);
         int qCount = skuCounts.getOrDefault('Q', 0);
@@ -215,7 +215,7 @@ public class CheckoutSolution {
             }
         }
 
-        // U
+        // ------------------------------U------------------------------
         int uCount = skuCounts.getOrDefault('U', 0);
         if(uCount>3){
             if(uCount % 4 ==0){
@@ -331,3 +331,4 @@ public class CheckoutSolution {
         }
     }
 }
+
